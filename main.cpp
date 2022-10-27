@@ -1,8 +1,8 @@
 #include <iostream>
 #include "calculator.h"
-#include <cmath>
 
-struct sin_ {
+
+struct myfunc {
     long double operator()(long double num) {
         return std::sin(num);
     }
@@ -14,10 +14,10 @@ int main() {
             {"pi", M_PI}
     };
     const std::map<std::string, std::function<long double(long double)>> functions = {
-            {"sin", sin_()}
+            {"myfunc", myfunc()}
     };
     Calculator calc({}, functions);
-    std::string expr = "sin(pi*e^2)";
+    std::string expr = "cos(pi*e^2*(3*sin(30)))";
     std::cout << expr << " = " << calc.compute(expr) << std::endl;
     return 0;
 }
